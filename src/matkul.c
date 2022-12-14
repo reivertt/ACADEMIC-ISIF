@@ -5,7 +5,7 @@
 
 void input_mata_kuliah(){
     system("cls");
-    FILE *coursefp = fopen("mata_kuliah.txt", "w+");
+    FILE *coursefp = fopen("mata_kuliah.txt", "r+");
     struct mapelfile mapel = {"", "", 0, 0, 0, 0, 0};
 
     if (coursefp == NULL){

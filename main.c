@@ -15,7 +15,7 @@ int main(){
 
     while(1){
         system("cls");
-        //center align
+        //center align and adjust this for further use tmorrow
         printf("==============================================================================================================================\n");
         printf("\t\t\t\t\t\tPlease enter your credentials\n");
         printf("\t\t\t\t\t\t    Available Profiles\n");
@@ -84,6 +84,7 @@ int main(){
                     scanf("%d", &schoice);
                     
                     if (schoice == 1){
+                        system("cls");
                         show_mata_kuliah();
                         system("pause");
                     }
@@ -94,6 +95,7 @@ int main(){
                         reset_mata_kuliah();
                     }
                     else if (schoice == 4){
+                        system("cls");
                         show_dosen();
                         system("pause");
                     }
@@ -113,11 +115,13 @@ int main(){
                         */
                     }
                     else if (schoice == 9){
+                        system("cls");
                         printf("Logging out");
                         loading();
                         break;
                     }
                     else {
+                        system("cls");
                         printf("invalid choice\n");
                         system("pause");
                     }
@@ -133,19 +137,20 @@ int main(){
             loading();
             printf("Login Successful!\n");
             sleep(2);
-            system("cls");
 
             while(1){
+                system("cls");
                 printf("Welcome to the Informatics Engineering Student Portal!\n");
                 printf("What would you like to do?\n");
                 printf("1. Show Registered Students\n");
                 printf("2. Register a Student\n");
                 printf("3. Show Available Courses\n");
-                printf("4. View Student\n");  //assign a course and or back down
+                printf("4. Manage Student Information\n");  //assign a course and or back down
                 printf("9. Log out\n");
                 int schoice;
                 scanf("%d", &schoice);
                 if (schoice == 1){
+                    system("cls");
                     show_mahasiswa();
                     system("pause");
                 }
@@ -153,16 +158,19 @@ int main(){
                     input_mahasiswa();
                 }
                 else if (schoice == 3){
+                    system("cls");
                     show_mata_kuliah();
                     system("pause");
                 }
                 else if (schoice == 4){
                     //! dont forget to do this pls
+                    system("cls");
                     printf("pardon sir, that isnt implemented yet mwehe\n");
                     printf("This is where you view a student's data and possibly assign a course or even delete the whole data!\n");
                     system("pause");
                 }
                 else if (schoice == 9){
+                    system("cls");
                     printf("Logging out");
                     loading();
                     break;

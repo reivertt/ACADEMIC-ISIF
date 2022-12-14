@@ -11,7 +11,7 @@ todo somehow figure out how to print shit cause thats still beyond my capablitie
 
 void input_mahasiswa(){
     system("cls");
-    FILE *sfp = fopen("mahasiswa.txt", "w+");
+    FILE *sfp = fopen("mahasiswa.txt", "r+");
     struct mahasiswafile mhs = {"", "", "", 0, {"", "", 0, 0, 0, 0, 0}};
     char temp[5], ttemp;
 
@@ -70,6 +70,8 @@ void input_mahasiswa(){
         scanf("\n%c", &ttemp);
         if(ttemp == 'y'){
             mhs = mtemp;
+            //!iki hrs direvisi lagi huek
+            system("cls");
             printf("Inserted data is as follows:\n");
             printf("Student Name: %s\n", mhs.mhsname);
             printf("Student NRP: %s\n", mhs.nrp);

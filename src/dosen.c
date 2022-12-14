@@ -5,7 +5,7 @@
 
 void input_dosen(){
     system("cls");
-    FILE *dosenfp = fopen("dosen.txt", "w+");
+    FILE *dosenfp = fopen("dosen.txt", "r+");
     struct dosenfile dosen = {"", ""};
 
     if (dosenfp == NULL){
