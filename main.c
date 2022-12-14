@@ -11,22 +11,23 @@ golly linear search sounds fun
 
 int main(){
     trademark();
-    system("pause");
+    sleep(5);
 
     while(1){
         system("cls");
         //center align
-        printf("Please enter your credentials\n");
-        printf("Available Profiles\n");
-        printf("____________________    ____________________\n");
-        printf("|   Administrator   |   |     Student      |\n");
-        printf("|         1         |   |         2        |\n");
-        printf("|     pass:79       |   |                  |\n");
-        printf("____________________    ____________________\n");
+        printf("==============================================================================================================================\n");
+        printf("\t\t\t\t\t\tPlease enter your credentials\n");
+        printf("\t\t\t\t\t\t    Available Profiles\n");
+        printf("\t\t\t\t\t____________________    ____________________\n");
+        printf("\t\t\t\t\t|   Administrator   |   |     Student      |\n");
+        printf("\t\t\t\t\t|         1         |   |         2        |\n");
+        printf("\t\t\t\t\t|     pass:79       |   |                  |\n");
+        printf("\t\t\t\t\t____________________    ____________________\n");
         printf("\n");
         printf("\n");
-        printf("\t\t\t\tSystem Information(9)");
-        printf("\t\t\t\tPower Off(0)");
+        printf("System Information(9)\n");
+        printf("Power Off(0)\n");
         printf("Enter your choice: ");
         int choice;
         scanf("%d", &choice);
@@ -80,12 +81,78 @@ int main(){
                     
                     if (schoice == 1){
                         printf("course management\n");
+                        printf("Welcome to The Course Management Portal\n");
+                        printf("Please select an option\n");
+                        printf("1. Input Course\n");
+                        printf("2. Show Course\n");
+                        printf("3. Delete Course\n");
+                        printf("9. Exit\n");
+
+                        printf("Enter your choice: ");
+                        int cchoice;
+                        scanf("%d", &cchoice);
+                        if (cchoice == 1){
+                            input_mata_kuliah();
+                        }
+                        else if (cchoice == 2){
+                            show_mata_kuliah();
+                            system("pause");
+                        }
+                        else if (cchoice == 3){
+                            // delete_mata_kuliah();
+                            //todo Figure out how to do this
+                        }
+                        else if (cchoice == 9){
+                            printf("exiting\n");
+                            loading();
+                            break;
+                        }
+                        else {
+                            printf("invalid choice\n");
+                            system("pause");
+                        }
                     }
                     else if (schoice == 2){
                         printf("student advisor management\n");
+                        printf("Welcome to The Student Advisor Management Portal\n");
+                        printf("Please select an option\n");
+                        printf("1. Input Student Advisor\n");
+                        printf("2. Show Student Advisor\n");
+                        printf("3. Delete Student Advisor\n");
+                        printf("9. Exit\n");
+
+                        printf("Enter your choice: ");
+                        int sachoice;
+                        scanf("%d", &sachoice);
+                        if (sachoice == 1){
+                            input_dosen();
+                        }
+                        else if (sachoice == 2){
+                            show_dosen();
+                            system("pause");
+                        }
+                        else if (sachoice == 3){
+                            // delete_dosen();
+                            //todo Figure out how to do this
+                        }
+                        else if (sachoice == 9){
+                            printf("exiting\n");
+                            loading();
+                            break;
+                        }
+                        else {
+                            printf("invalid choice\n");
+                            system("pause");
+                        }
                     }
                     else if (schoice == 3){
                         printf("student grades\n");
+                        /*
+                        ? The ALUR
+                        * Find student
+                        * Find course
+                        * Assign grade
+                        */
                     }
                     else if (schoice == 9){
                         printf("exiting\n");
@@ -143,6 +210,16 @@ int main(){
                     break;
                 }
             }
+        }
+        else if (choice == 9){
+            header();
+            system("pause");
+        }
+        else if (choice == 0){
+            printf("Shutting down");
+            loading();
+            printf("Thank you for using this program\n");
+            break;
         }
         else {
             printf("Invalid input, please try again\n");

@@ -34,7 +34,7 @@ void ingfo(){
 
 void trademark(){
     printf("\n\n\n");
-    printf("\tThis system is based on ChocolateBar's Algorithm(doesn't exist)\n");
+    printf("\t\t\t\t\tThis system is based on ChocolateBar's Algorithm(doesn't exist)\n");
     printf("\t\t\t\t\t\t    __________________,.............,\n");
     printf("\t\t\t\t\t\t   /_/_/_/_/_/_/_/_/,-',  ,. -,-,--/|\n");
     printf("\t\t\t\t\t\t  /_/_/_/_/_/_/_/,-' //  /-| / /--/ /\n");
@@ -49,13 +49,13 @@ void trademark(){
     printf("      \\ \\  \\____\\ \\  \\ \\  \\ \\  \\\\\\  \\ \\  \\____\\ \\  \\\\\\  \\ \\  \\____\\ \\  \\ \\  \\   \\ \\  \\ \\ \\  \\_|\\ \\ \\  \\|\\  \\ \\  \\ \\  \\ \\  \\\\  \\| \n");
     printf("       \\ \\_______\\ \\__\\ \\__\\ \\_______\\ \\_______\\ \\_______\\ \\_______\\ \\__\\ \\__\\   \\ \\__\\ \\ \\_______\\ \\_______\\ \\__\\ \\__\\ \\__\\\\ _\\ \n");
     printf("        \\|_______|\\|__|\\|__|\\|_______|\\|_______|\\|_______|\\|_______|\\|__|\\|__|    \\|__|  \\|_______|\\|_______|\\|__|\\|__|\\|__|\\|__|\n");
-    printf("\n\t\t\t\t\t\t   ChocolateBar Algorithm\n\n\n\n");
+    printf("\n\t\t\t\t\t\t     ChocolateBar Algorithm\n\n\n\n");
 }
 
 void loading(){
     for(int i=0;i<3;i++){
         printf(".");
-        sleep(2);
+        sleep(1);
     }
     printf("\n");
 }
