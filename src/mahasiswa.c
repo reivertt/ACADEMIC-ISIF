@@ -65,7 +65,7 @@ void input_mahasiswa(){
         printf("Student Name: %s\n", mtemp.mhsname);
         printf("Student NRP: %s\n", mtemp.nrp);
         printf("Advisor: %s\n", mtemp.dosen);
-        
+
         printf("Continue? (y/n): ");
         scanf("\n%c", &ttemp);
         if(ttemp == 'y'){
@@ -125,6 +125,7 @@ void show_mahasiswa(){
 }
 
 void reset_mahasiswa(){
+    //*this is probably gonna get heavily altered tomorrow
     system("cls");
     FILE *sfp = fopen("mahasiswa.txt", "r+");
     struct mahasiswafile mhs = {"", "", "", 0, {"", "", 0, 0, 0, 0, 0}};

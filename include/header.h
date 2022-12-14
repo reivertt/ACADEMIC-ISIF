@@ -40,15 +40,19 @@ struct mahasiswafile
 
 void input_dosen();
 void show_dosen();
+void reset_dosen();
 
 void input_mata_kuliah();
 void show_mata_kuliah();
+void reset_mata_kuliah();
 
 void input_mahasiswa();
 void show_mahasiswa();
+void reset_mahasiswa();
 
 void input_nilai();
 void show_nilai();
+void clear_nilai();
 
 void assign_matkul();
 
@@ -57,6 +61,7 @@ void tag();
 void ingfo();
 void trademark();
 void loading();
+
 
 /*
 TODO MAKE A GODDAMNED LOGIN SCREEN
@@ -67,10 +72,10 @@ base this off of chocolate
 ! make it like keanu's 
 
 ! Status:
-* input_dosen() ->           done
+todo input_dosen() ->           fix this shit
 * show_dosen() ->           done
 
-* input_mata_kuliah() ->    done
+todo input_mata_kuliah() ->    fix this shit
 * show_mata_kuliah() ->     done
 
 * input_mahasiswa() ->      done
@@ -78,10 +83,6 @@ base this off of chocolate
 
 todo assign_matkul() ->     not done (hardest mwehe)
 
-todo searchmapel() ->       not done
-todo searchmhs() ->         should be easy but not done
-
 todo input_nilai() ->       not done
 todo show_nilai() ->        not done
-
 */
