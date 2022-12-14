@@ -133,7 +133,7 @@ void reset_dosen(){
             }
         }
         
-        printf(" Do you still wish to delete more data? (y/n): ");
+        printf(" Continue deleting data? (y/n): ");
         char more;
         scanf("\n%c", &more);
         if (more == 'n'){
