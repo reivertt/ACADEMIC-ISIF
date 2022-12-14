@@ -13,7 +13,6 @@ void show_nilai(){
     // cari mahasiswa
     // cari mata kuliah
     // tampilkan nilai
-    printf("\npress any key to continue\n");
     printf("\n");
-    system("pause > null");
+    system("pause");
 }

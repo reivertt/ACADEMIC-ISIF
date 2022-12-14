@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "header.h"
 
-void inputdosen(){
+void input_dosen(){
     system("cls");
     FILE *fp = fopen("dosen.txt", "r+");
     struct dosenfile dosen = {"", ""};

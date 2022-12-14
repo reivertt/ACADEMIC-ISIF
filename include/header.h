@@ -38,7 +38,7 @@ struct mahasiswafile
 };
 // struct mahasiswafile mhs[100];
 
-void inputdosen();
+void input_dosen();
 void show_dosen();
 
 void input_mata_kuliah();
@@ -49,10 +49,6 @@ void show_mahasiswa();
 
 void input_nilai();
 void show_nilai();
-
-//searching functions
-char searchmapel();
-char searchmhs();
 
 void assign_matkul();
 
@@ -71,7 +67,7 @@ base this off of chocolate
 ! make it like keanu's 
 
 ! Status:
-* inputdosen() ->           done
+* input_dosen() ->           done
 * show_dosen() ->           done
 
 * input_mata_kuliah() ->    done
