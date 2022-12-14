@@ -10,7 +10,6 @@ golly linear search sounds fun
 */
 
 int main(){
-    sleep(3);
     trademark();
     system("pause");
 
@@ -19,209 +18,135 @@ int main(){
         //center align
         printf("Please enter your credentials\n");
         printf("Available Profiles\n");
-        printf("____________________  ____________________\n");
-        printf("|   Administrator   | |     Student      |\n");
-        printf("|         1         | |         2        |\n");
-        printf("____________________  ____________________\n");
+        printf("____________________    ____________________\n");
+        printf("|   Administrator   |   |     Student      |\n");
+        printf("|         1         |   |         2        |\n");
+        printf("|     pass:79       |   |                  |\n");
+        printf("____________________    ____________________\n");
+        printf("\n");
+        printf("\n");
+        printf("\t\t\t\tSystem Information(9)");
+        printf("\t\t\t\tPower Off(0)");
         printf("Enter your choice: ");
         int choice;
         scanf("%d", &choice);
         if (choice == 1){
-            printf("============================================================\n");
-            printf("|        Informatics Engineering Administrator Portal       |\n");
-            printf("============================================================\n");
+            int tries = 4, access = 0;
+            while (tries--){
+                system("cls");
+                printf("============================================================\n");
+                printf("|        Informatics Engineering Administrator Portal       |\n");
+                printf("============================================================\n");
+                printf("Please enter your credentials...");
+                int pass;
+                scanf("%d", &pass);
+                if (pass == 79){
+                    printf("Welcome Administrator!\n");
+                    printf("Loading");
+                    loading();
+                    access = 1;
+                    system("cls");
+                    break;
+                }
+                else{
+                    system("cls");
+                    printf("Loading\n");
+                    loading();
+                    printf("Incorrect Password!\n");
+                    printf("You have %d tries left\n", tries);
+                    system("pause");
+                }
+            }
+            if (tries == 0){
+                printf("You have exceeded the number of tries\n");
+                printf("Exiting");
+                loading();
+                sleep(2);
+                system("cls");
+                continue;
+            }
+            if (access == 1){
+                while(1){
+                    system("cls");
+                    printf("Welcome to the Informatics Engineering Administrator Portal!\n");
+                    printf("Please select an option\n");
+                    printf("1. Course Management\n");
+                    printf("2. Student Advisor Management\n");
+                    printf("3. Student Grades\n");
+                    printf("9. Exit\n");
+                    printf("Enter your choice: ");
+                    int schoice;
+                    scanf("%d", &schoice);
+                    
+                    if (schoice == 1){
+                        printf("course management\n");
+                    }
+                    else if (schoice == 2){
+                        printf("student advisor management\n");
+                    }
+                    else if (schoice == 3){
+                        printf("student grades\n");
+                    }
+                    else if (schoice == 9){
+                        printf("exiting\n");
+                        loading();
+                        break;
+                    }
+                    else {
+                        printf("invalid choice\n");
+                        system("pause");
+                    }
+                }
+            }
         }
-        else if (choice == 2){
+        else if (choice == 2){      //! ini kurang 1 bagian, student part which is pretty massive tbh
             system("cls");
             printf("============================================================\n");
             printf("|           Informatics Engineering Student Portal          |\n");
             printf("============================================================\n");
-            printf("Please enter your credentials...");
-            // scanf("%s");
-            system("cls");
-            printf("Loading...\n");
-            sleep(1);
+            printf("Loading");
+            loading();
             printf("Login Successful!\n");
             sleep(2);
             system("cls");
-            printf("Welcome to the Informatics Engineering Student Portal!\n");
-            printf("What would you like to do?\n");
-            printf("1. Student Information\n");
-            printf("2. Course Information\n");
-            printf("9. Log out\n");
-            int schoice;
-            scanf("%d", &schoice);
-            if (schoice == 1){
-                system("cls");
-                printf("Welcome to the Student Information Portal\n");
+
+            while(1){
+                printf("Welcome to the Informatics Engineering Student Portal!\n");
                 printf("What would you like to do?\n");
-                printf("1. View registered students\n");
-                printf("2. View student information\n");
-                printf("3. Register a student\n");
-                printf("9. Back\n");
-                int sschoice;
-                scanf("%d", &sschoice);
-                if (sschoice == 1){
-                    system("cls");
+                printf("1. Show Registered Students\n");
+                printf("2. Register a Student\n");
+                printf("3. Show Available Courses\n");
+                printf("4. View Student\n");  //assign a course
+                printf("9. Log out\n");
+                int schoice;
+                scanf("%d", &schoice);
+                if (schoice == 1){
                     show_mahasiswa();
                     system("pause");
                 }
-                else if (sschoice == 2){
-                    system("cls");
-                    printf("Enter the student's NRP: ");
-                    //todo how do i do this?
-                }
-                else if (sschoice == 3){
-                    system("cls");
+                else if (schoice == 2){
                     input_mahasiswa();
                 }
-                else if (sschoice == 9){
-                    break;
+                else if (schoice == 3){
+                    show_mata_kuliah();
+                    system("pause");
                 }
-                else {
-                    printf("Invalid input, please try again\n");
-                    continue;
+                else if (schoice == 4){
+                    //! dont forget to do this pls
+                    printf("pardon sir, that isnt implemented yet mwehe\n");
+                    printf("This is where you view a student's data and possibly assign a course or even delete the whole data!\n");
+                    system("pause");
+                }
+                else if (schoice == 9){
+                    printf("Logging out");
+                    loading();
+                    break;
                 }
             }
         }
         else {
             printf("Invalid input, please try again\n");
             continue;
-        }
-    }
-    while(1){
-        system("cls");
-        header();   
-
-        printf("Welcome to the (bootleg) University Academic Portal\n");
-        printf("What would you like to do?\n");
-        printf("1. Academic Participants\n");
-        printf("2. College Subjects\n");
-        printf("3. Student Grades\n");
-        printf("4. System Information\n");
-        printf("9. Exit\n");
-        
-        int choice;
-        scanf("%d", &choice);
-        if (choice == 1){
-            system("cls");
-            while(1){
-                system("cls");
-                int subchoice;
-                printf("Welcome to the Academic Community Portal\n");
-                printf("What would you like to do?\n");
-                printf("1. Input Lecturer\n");
-                printf("2. Input Student\n");
-                printf("3. View Registered Lecturers\n");
-                printf("4. View Registered Students\n");
-                printf("9. Back\n");
-                
-                scanf("%d", &subchoice);
-                if (subchoice == 1){
-                    system("cls");
-                    inputdosen();
-                }
-                else if (subchoice == 2){
-                    system("cls");
-                    input_mahasiswa();
-                }
-                else if (subchoice == 3){
-                    system("cls");
-                    show_dosen();
-                    system("pause");
-                }
-                else if (subchoice == 4){
-                    system("cls");
-                    show_mahasiswa();
-                    system("pause");
-                }
-                else if (subchoice == 9){
-                    system("cls");
-                    break;
-                }
-                else{
-                    printf("Invalid input, please try again\n");
-                }
-            }
-        }
-        else if (choice == 2){
-            system("cls");
-            while(1){
-                int subchoice;
-                printf("Welcome to the College Subjects Portal\n");
-                printf("What would you like to do?\n");
-                printf("1. Input College Subjects\n");
-                printf("2. View College Subjects\n");
-                printf("9. Back\n");
-                
-                scanf("%d", &subchoice);
-                if (subchoice == 1){
-                    system("cls");
-                    input_mata_kuliah();
-                }
-                else if (subchoice == 2){
-                    system("cls");
-                    show_mata_kuliah();
-                }
-                else if (subchoice == 9){
-                    system("cls");
-                    break;
-                }
-                else{
-                    printf("Invalid input, please try again\n");
-                }
-            }
-        }
-        else if (choice == 3){
-            system("cls");
-            while(1){
-                int subchoice;
-                printf("Welcome to the Student Grades Portal\n");
-                printf("What would you like to do?\n");
-                printf("1. Input Student Grades\n");
-                printf("2. View Student Grades\n");
-                printf("9. Back\n");
-                
-                scanf("%d", &subchoice);
-                if (subchoice == 1){
-                    system("cls");
-                    input_nilai();
-                }
-                else if (subchoice == 2){
-                    system("cls");
-                    show_nilai();
-                }
-                else if (subchoice == 9){
-                    system("cls");
-                    break;
-                }
-                else{
-                    printf("Invalid input, please try again\n");
-                }
-            }
-        }
-        else if (choice == 4){
-            system("cls");
-            ingfo();
-            printf("Pencet 1 untuk bank soal eas 2022\n");
-            int ans;
-            scanf("%d", &ans);
-            if (ans == 1) {
-                tag();
-                printf("loh loh gabole gitu, yaudah ini easter egg aja deh :3\n");
-            } else{
-
-            }
-            printf("\n");
-            system("pause");
-        }
-        else if (choice == 9){
-            system("cls");
-            printf("Thank you for using this program\n");
-            break;
-        }
-        else{
-            printf("Invalid input, please try again\n");
         }
     }
     return 0;
