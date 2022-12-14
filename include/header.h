@@ -60,6 +60,7 @@ void header();
 void tag();
 void ingfo();
 void trademark();
+void loading();
 
 /*
 TODO MAKE A GODDAMNED LOGIN SCREEN
@@ -82,19 +83,9 @@ base this off of chocolate
 todo assign_matkul() ->     not done (hardest mwehe)
 
 todo searchmapel() ->       not done
-todo searchmhs() ->         not done
+todo searchmhs() ->         should be easy but not done
 
 todo input_nilai() ->       not done
 todo show_nilai() ->        not done
 
-*/
-
-/*
-    __________________,.............,    
-   /_/_/_/_/_/_/_/_/,-',  ,. -,-,--/|
-  /_/_/_/_/_/_/_/,-' //  /-| / /--/ /
- /_/_/_/_/_/_/,-' `-''--'  `' '--/ /
-/_/_/_/_/_/_,:................../ /
-|________,'                   hh|/
-         """""""""""""""""""""""'
 */
