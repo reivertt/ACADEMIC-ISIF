@@ -73,6 +73,8 @@ base this off of chocolate
 * Welcome to The Chocolate Academic Management System
 
 ! Status:
+
+!Deletion rusak
 input_dosen() ->          done
 todo show_dosen() ->           not done
 
@@ -82,7 +84,7 @@ todo show_mata_kuliah() ->     not done
 input_mahasiswa() ->      done
 todo show_mahasiswa() ->       not done
 
-todo assign_matkul() ->     not done (hardest mwehe)
+assign_matkul() ->        done tp deletion rusak
 
 todo input_nilai() ->       not done
 todo show_nilai() ->        not done

@@ -5,7 +5,7 @@
 
 void input_mata_kuliah(){
     system("cls");
-    FILE *coursefp = fopen("mata_kuliah.txt", "r+");
+    FILE *coursefp = fopen("mata_kuliah.dat", "rb+");
     struct mapelfile mapel = {"", "", 0, 0, 0, 0, 0};
 
     if (coursefp == NULL){
@@ -59,7 +59,7 @@ void input_mata_kuliah(){
         scanf("\n%c", &ttemp);
         if (ttemp == 'n'){
             printf("Input cancelled\n");
-            printf("Returning to main menu\n");
+            printf("Returning to main menu");
             loading();
             system("cls");
             break;
@@ -69,7 +69,7 @@ void input_mata_kuliah(){
 }
 
 void show_mata_kuliah(){
-    FILE *coursefp = fopen("mata_kuliah.txt", "r");
+    FILE *coursefp = fopen("mata_kuliah.dat", "rb");
     struct mapelfile mapel = {"", "", 0, 0, 0, 0, 0};
     
     if (coursefp == NULL){
@@ -95,7 +95,7 @@ void show_mata_kuliah(){
 
 void reset_mata_kuliah(){
     while(1){
-        FILE *coursefp = fopen("mata_kuliah.txt", "r+");
+        FILE *coursefp = fopen("mata_kuliah.dat", "rb+");
         struct mapelfile mapel = {"", "", 0, 0, 0, 0, 0};
         
         if (coursefp == NULL){

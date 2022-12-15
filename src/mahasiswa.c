@@ -11,7 +11,7 @@ todo somehow figure out how to print shit cause thats still beyond my capablitie
 
 void input_mahasiswa(){
     system("cls");
-    FILE *sfp = fopen("mahasiswa.txt", "r+");
+    FILE *sfp = fopen("mahasiswa.dat", "rb+");
     struct mahasiswafile mhs = {"", "", "", 0, {"", "", 0, 0, 0, 0, 0}, 0};
     char temp[5], ttemp;
 
@@ -41,7 +41,7 @@ void input_mahasiswa(){
         scanf("\n%[^\n]%*c", mtemp.mhsname);
         
         struct dosenfile sdosen = {"", "" };
-        FILE *dosenfp = fopen("dosen.txt", "r");
+        FILE *dosenfp = fopen("dosen.dat", "rb");
 
         while(1){
             system("cls");
@@ -106,7 +106,7 @@ void input_mahasiswa(){
 }
 
 void show_mahasiswa(){
-    FILE *sfp = fopen("mahasiswa.txt", "r");
+    FILE *sfp = fopen("mahasiswa.dat", "rb");
     if (sfp == NULL){
         printf("File not found\n");
         return;
@@ -128,7 +128,7 @@ void show_mahasiswa(){
 
 void manage_student(){
     while(1){
-        FILE *sfp = fopen("mahasiswa.txt", "r+");
+        FILE *sfp = fopen("mahasiswa.dat", "rb+");
         struct mahasiswafile mhs = {"", "", "", 0, {"", "", 0, 0, 0, 0, 0}, 0};
         if (sfp == NULL){
             printf("File not found\n");
@@ -226,7 +226,7 @@ void manage_student(){
                         }
                         if (bloo == 0){
                             //if it aint then go assign it
-                            FILE *mkfp = fopen("mata_kuliah.txt", "r");
+                            FILE *mkfp = fopen("mata_kuliah.dat", "rb");
                             struct mapelfile mk = {"", "", 0, 0, 0, 0, 0};
                             
                             if (mkfp == NULL){

@@ -5,7 +5,7 @@
 
 void input_dosen(){
     system("cls");
-    FILE *dosenfp = fopen("dosen.txt", "r+");
+    FILE *dosenfp = fopen("dosen.dat", "rb+");
     struct dosenfile dosen = {"", ""};
 
     if (dosenfp == NULL){
@@ -66,7 +66,7 @@ void input_dosen(){
 }
 
 void show_dosen(){
-    FILE *dosenfp = fopen("dosen.txt", "r");
+    FILE *dosenfp = fopen("dosen.dat", "rb");
     struct dosenfile dosen = {"", ""};
 
     if (dosenfp == NULL){
@@ -89,7 +89,7 @@ void show_dosen(){
 
 void reset_dosen(){
     system("cls");
-    FILE *dosenfp = fopen("dosen.txt", "r+");
+    FILE *dosenfp = fopen("dosen.dat", "rb+");
     struct dosenfile dosen = {"", ""};
 
     if (dosenfp == NULL){
