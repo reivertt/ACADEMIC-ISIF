@@ -69,7 +69,6 @@ void input_mata_kuliah(){
 }
 
 void show_mata_kuliah(){
-    system("cls");
     FILE *coursefp = fopen("mata_kuliah.txt", "r");
     struct mapelfile mapel = {"", "", 0, 0, 0, 0, 0};
     
@@ -95,17 +94,16 @@ void show_mata_kuliah(){
 }
 
 void reset_mata_kuliah(){
-    system("cls");
-    FILE *coursefp = fopen("mata_kuliah.txt", "r+");
-    struct mapelfile mapel = {"", "", 0, 0, 0, 0, 0};
-    
-    if (coursefp == NULL){
-        printf("File not found\n");
-        fclose(coursefp);
-        return;
-    }
-
     while(1){
+        FILE *coursefp = fopen("mata_kuliah.txt", "r+");
+        struct mapelfile mapel = {"", "", 0, 0, 0, 0, 0};
+        
+        if (coursefp == NULL){
+            printf("File not found\n");
+            fclose(coursefp);
+            return;
+        }
+
         system("cls");
         printf("============================================\n");
         printf("|     Course Data Deletion in Progress     |\n");
@@ -151,6 +149,6 @@ void reset_mata_kuliah(){
             system("cls");
             break;
         }
+        fclose(coursefp);
     }   
-    fclose(coursefp);
 }

@@ -3,10 +3,13 @@
 #include "header.h"
 
 /*
-* main program is moreless finished
-TODO i gotta somehow figure out how to successfully implement the input function
-TODO second on the list is to assign stuff and add linear search
-golly linear search sounds fun
+? main program is moreless finished
+TODO make the struct in struct work(?)
+todo fix up visual stuff:
+    * center align
+    * change into morioh institute of technology
+    * update header funct
+    * 
 */
 
 int main(){
@@ -20,9 +23,9 @@ int main(){
         printf("\t\t\t\t\t\tPlease enter your credentials\n");
         printf("\t\t\t\t\t\t    Available Profiles\n");
         printf("\t\t\t\t\t____________________    ____________________\n");
-        printf("\t\t\t\t\t|   Administrator   |   |     Student      |\n");
-        printf("\t\t\t\t\t|         1         |   |         2        |\n");
-        printf("\t\t\t\t\t|     pass:79       |   |                  |\n");
+        printf("\t\t\t\t\t|   Administrator   |   |      Student      |\n");
+        printf("\t\t\t\t\t|         1         |   |         2         |\n");
+        printf("\t\t\t\t\t|     pass:79       |   |                   |\n");
         printf("\t\t\t\t\t____________________    ____________________\n");
         printf("\n");
         printf("\n");
@@ -128,7 +131,7 @@ int main(){
                 }
             }
         }
-        else if (choice == 2){      //! ini kurang 1 bagian, student part which is pretty massive tbh
+        else if (choice == 2){
             system("cls");
             printf("============================================================\n");
             printf("|           Informatics Engineering Student Portal          |\n");
@@ -165,9 +168,7 @@ int main(){
                 else if (schoice == 4){
                     //! dont forget to do this pls
                     system("cls");
-                    printf("pardon sir, that isnt implemented yet mwehe\n");
-                    printf("This is where you view a student's data and possibly assign a course or even delete the whole data!\n");
-                    system("pause");
+                    manage_student();
                 }
                 else if (schoice == 9){
                     system("cls");

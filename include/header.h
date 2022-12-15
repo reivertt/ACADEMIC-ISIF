@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define MAX 20
 
 //iki bikin e wis ada di database
 //max 100 dosen ae wis
@@ -35,6 +36,8 @@ struct mahasiswafile
     int skstotal;
 
     struct mapelfile mapel[10];
+    int count;
+    //look for every declaration and empty this shit
 };
 // struct mahasiswafile mhs[100];
 
@@ -49,6 +52,7 @@ void reset_mata_kuliah();
 void input_mahasiswa();
 void show_mahasiswa();
 void reset_mahasiswa();
+void manage_mahasiswa();
 
 void input_nilai();
 void show_nilai();
@@ -67,19 +71,16 @@ void loading();
 TODO MAKE A GODDAMNED LOGIN SCREEN
 base this off of chocolate
 * Welcome to The Chocolate Academic Management System
-! redesign stuff so that its separated into student and administrator ig
-? OR
-! make it like keanu's 
 
 ! Status:
-todo input_dosen() ->           fix this shit
-* show_dosen() ->           done
+input_dosen() ->          done
+todo show_dosen() ->           not done
 
-todo input_mata_kuliah() ->    fix this shit
-* show_mata_kuliah() ->     done
+input_mata_kuliah() ->    done
+todo show_mata_kuliah() ->     not done
 
-* input_mahasiswa() ->      done
-* show_mahasiswa() ->       somewhat done
+input_mahasiswa() ->      done
+todo show_mahasiswa() ->       not done
 
 todo assign_matkul() ->     not done (hardest mwehe)
 
