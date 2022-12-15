@@ -3,74 +3,65 @@
 #include <stdlib.h>
 #include "header.h"
 
-/*
-todo implement the input function cause what the fuck is this
-todo somehow figure out how to print shit cause thats still beyond my capablities
-! get good
-*/
+//! get good
 
 void input_mahasiswa(){
-    system("cls");
-    FILE *sfp = fopen("mahasiswa.dat", "rb+");
-    struct mahasiswafile mhs = {"", "", "", 0, {"", "", 0, 0, 0, 0, 0}, 0};
-    char temp[5], ttemp;
-
-
-    if (sfp == NULL){
-        printf("File not found\n");
-        return;
-    }
-    
-    printf("\nFile found\n");
-    
     while(1){
-        struct mahasiswafile mtemp = {"", "", "", 0, {"", "", 0, 0, 0, 0, 0}, 0};
+        system("cls");
+        FILE *sfp = fopen("mahasiswa.dat", "rb+");
+        struct mahasiswafile mhs = {"", "", "", 0, {"", "", 0, 0, 0, 0, 0}, 0};
+        char temp[5], ttemp;
+
+        if (sfp == NULL){
+            printf("File not found\n");
+            return;
+        }
+        
+        // printf("\nFile found\n");
         printf("Student Input\n");
         printf("Input '000' to cancel operation\n");
         printf("------------------------\n");
         printf("Student NRP: ");
-        scanf("\n%s", mtemp.nrp);
+        scanf("\n%s", mhs.nrp);
         
-        if (strcmp(mtemp.nrp, "000") == 0){
+        if (strcmp(mhs.nrp, "000") == 0){
             printf("Input cancelled\n");
             system("cls");
             break;
         }
 
         printf("Student Name: ");
-        scanf("\n%[^\n]%*c", mtemp.mhsname);
+        scanf("\n%[^\n]%*c", mhs.mhsname);
         
         struct dosenfile sdosen = {"", "" };
         FILE *dosenfp = fopen("dosen.dat", "rb");
-
         while(1){
             system("cls");
             show_dosen();
-            printf("Assign an Advisor for %s\n", mtemp.mhsname);
+            printf("Assign an Advisor for %s\n", mhs.mhsname);
             printf("Advisor's NIP Code: ");
             scanf("\n%s", temp);
             int dlim = atoi(temp);
             if (!fseek(dosenfp, (dlim - 1) * sizeof(struct dosenfile), SEEK_SET)){
                 fread(&sdosen, sizeof(struct dosenfile), 1, dosenfp);
-                strcpy(mtemp.dosen, sdosen.dsnname);
+                strcpy(mhs.dosen, sdosen.dsnname);
                 system("cls");
                 printf("Advisor succesfully assigned\n");
                 break;
             }
             printf("Invalid NIP, please try again!\n");
         }
-        
+        fclose(dosenfp);
+
         system("cls");
         printf("You are about to input data regarding:\n");
-        printf("Student Name: %s\n", mtemp.mhsname);
-        printf("Student NRP: %s\n", mtemp.nrp);
-        printf("Advisor: %s\n", mtemp.dosen);
+        printf("Student Name: %s\n", mhs.mhsname);
+        printf("Student NRP: %s\n", mhs.nrp);
+        printf("Advisor: %s\n", mhs.dosen);
 
         printf("Continue? (y/n): ");
         scanf("\n%c", &ttemp);
         if(ttemp == 'y'){
-            mhs = mtemp;
-            //!iki hrs direvisi lagi huek (hilangin temp)
             system("cls");
             printf("Inserted data is as follows:\n");
             printf("Student Name: %s\n", mhs.mhsname);
@@ -100,9 +91,8 @@ void input_mahasiswa(){
             system("cls");
             break;
         }
-        fclose(dosenfp);
+        fclose(sfp);
     }
-    fclose(sfp);
 }
 
 void show_mahasiswa(){
@@ -126,6 +116,7 @@ void show_mahasiswa(){
     fclose(sfp);
 }
 
+//! Option 5 and 6 still broken
 void manage_student(){
     while(1){
         FILE *sfp = fopen("mahasiswa.dat", "rb+");
@@ -334,8 +325,6 @@ void manage_student(){
                             break;
                         }
                     }
-
-
                 }
                 else if (choice == 5){
                     //looks for that course and then shows course grade
