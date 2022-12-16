@@ -18,9 +18,9 @@ struct mapelfile
     int sks;
 
     //grade
-    int uts;
-    int eas;
-    int avg;
+    double uts;
+    double eas;
+    double avg;
     int finalgrade;
 };
 // struct mapelfile mapel[50];
@@ -54,8 +54,8 @@ void show_mahasiswa();
 void reset_mahasiswa();
 void manage_mahasiswa();
 
-void input_nilai();
-void show_nilai();
+void menu_grade();
+void show_grade();
 void clear_nilai();
 
 void assign_matkul();
@@ -88,4 +88,53 @@ assign_matkul() ->        done tp deletion rusak
 
 todo input_nilai() ->       not done
 todo show_nilai() ->        not done
+*/
+
+/*
+#include <stdio.h>
+
+int main(){
+	while(1){
+	    FILE *sfp = fopen("mahasiswa.dat", "rb");
+	    struct mahasiswafile mhs = {}
+	    printf("Welcome to The Student Grade Management Portal!\n");
+	    show_mahasiswa();
+	    printf("klo 000 cancel");
+    	printf("pilih student e yo: ");
+    	char tempp[5];
+    	scanf("%s", tempp);
+    	
+    	if (strcmp(tempp, "000") == 0){
+    	    printf("Operation Canceled");
+    	    loading();
+    	    break;
+    	}
+    	
+    	int lim = atoi(tempp);
+    	fseek(sfp, (lim * sizeof(struct mahasiswafile)), 1, SEEK_SOMETHING);
+    	fread(&mhs, sfp, 1, something);
+    	if ada
+    	printf("Student %s\n", mhs.name);
+    	printf("is enrolled to %d courses", mhs.count);
+    	for (int i = 0; i < mhs.count; i++){
+    	    printf("%s\t%s\n", code/coursename);
+    	}
+        printf("which bih?");
+        char temmp[5];
+        int ind;
+        scanf("%s", temmp);
+        for (int i = 0; i < mhs.count; i++){
+            if (!strcmp(temmp, mapelcode)){
+                printf("found!\n");
+                ind = i;
+            }   
+        }
+        printf("input grade\n");
+        scanf("%f %f", uts, eas);
+        avg = (uts + eas)/2
+        printf("Input success!")
+	}
+}
+
+
 */

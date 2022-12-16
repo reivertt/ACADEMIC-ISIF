@@ -56,7 +56,7 @@ void input_dosen(){
         scanf("\n%c", &ttemp);
         if (ttemp == 'n'){
             printf("Input cancelled\n");
-            printf("Returning to main menu\n");
+            printf("Returning to main menu");
             loading();
             system("cls");
             break;
@@ -77,10 +77,10 @@ void show_dosen(){
     
     printf("File found\n");
 
-    printf("Nama Dosen\tNIP\n"); //todo fix this lmao
+    printf("NIP\tAdvisor Name\n"); //todo fix this lmao
     while (!feof(dosenfp)){
         if (fread(&dosen, sizeof(struct dosenfile), 1, dosenfp) != 0 && strcmp(dosen.dsnname, "") != 0){
-            printf("%s\t\t%s\n", dosen.dsnname, dosen.nip);
+            printf("%s\t\t%s\n", dosen.nip, dosen.dsnname);
         }
     }
     printf("\n");

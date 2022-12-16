@@ -82,7 +82,7 @@ void show_mata_kuliah(){
     
     printf("Available College Subjects\n");
     printf("------------------------\n");
-    printf("Course Code\nName of the Course\n");
+    printf("Course Code\tName of the Course\n");
     while(!feof(coursefp)){
         if (fread(&mapel, sizeof(struct mapelfile), 1, coursefp) != 0 && strcmp(mapel.mkname, "") != 0){
             printf("%s\t%s\n", mapel.mkcode, mapel.mkname);

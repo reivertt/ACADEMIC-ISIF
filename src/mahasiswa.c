@@ -132,10 +132,10 @@ void manage_student(){
         printf("|     Welcome to The Student Management Portal     |\n");
         printf("====================================================\n");
         show_mahasiswa();
-        printf("Who would you like to view?\n");
         printf("Input '000' to cancel operation\n");
+        printf("Who would you like to view : ");
         char tremp[5];
-        scanf("\n%s", tremp);
+        scanf("%s", tremp);
 
         if (strcmp(tremp, "000") == 0){
             printf("Operation cancelled");
@@ -161,7 +161,8 @@ void manage_student(){
                 printf("3. Assign a Course\n");
                 printf("4. Resign from a Course\n");
                 printf("5. View Course Grades\n"); //looks for that course and then shows course grade
-                printf("6. Delete Data\n");
+                printf("6. Print Transcript\n");
+                printf("7. Delete Data\n");
                 printf("9. Return to Main Menu\n");
 
                 printf("Input: ");
@@ -328,13 +329,61 @@ void manage_student(){
                 }
                 else if (choice == 5){
                     //looks for that course and then shows course grade
+                    while(1){
+                        system("cls");
+                        printf("Student: %s\n", mhs.mhsname);
+                        printf("is currently is enrolled in %d course(s) and has %d credit(s)\n", mhs.count, mhs.skstotal);
+                        printf("=================================================\n");
+                        printf("Course code\tCourse name\n");
+                        for (int i = 0; i < mhs.count; i++){
+                            printf("%d. %s %s\n", i + 1, mhs.mapel[i].mkcode, mhs.mapel[i].mkname);
+                        }
+                        printf("Which course would you like to view?");
+
+                        int temp;
+                        scanf("%d", &temp);
+                        if (temp == 0){
+                            break;
+                        }
+                        else if (temp > mhs.count){
+                            printf("Invalid input\n");
+                            printf("Returning to previous menu");
+                            loading();
+                            break;
+                        }
+                        else {
+                            printf("Course Name: %s\n", mhs.mapel[temp - 1].mkname);
+                            printf("Course Credits: %d\n", mhs.mapel[temp - 1].sks);
+                            printf("Course Code: %s\n", mhs.mapel[temp - 1].mkcode);
+                            printf("Course Grade: %d\n", mhs.mapel[temp - 1].finalgrade);
+                            system("pause");
+                            break;
+                        }
+                    }
                 }
                 else if (choice == 6){
-                    //lengkapin with courses
+                    system("cls");
+                    printf("Printing Student Transcript");
+                    loading();
+                    printf("Student: %s\n", mhs.mhsname);
+                    printf("NRP: %s\n", mhs.nrp);
+                    printf("Advisor: %s\n", mhs.dosen);
+                    printf("is currently is enrolled in %d course(s) and has %d credit(s)\n", mhs.count, mhs.skstotal);
+                    printf("=================================================\n");
+                    printf("Course code\tCourse name\tGrade\n");
+                    for (int i = 0; i < mhs.count; i++){
+                        printf("%s %s %d\n", mhs.mapel[i].mkcode, mhs.mapel[i].mkname, mhs.mapel[i].finalgrade);
+                    }
+                    printf("=================================================\n");
+                    system("pause");
+                }
+                else if (choice == 7){
                     printf("You are about to delete data regarding:\n");
                     printf("Student Name: %s\n", mhs.mhsname);
                     printf("Student NRP: %s\n", mhs.nrp);
                     printf("Advisor: %s\n", mhs.dosen);
+                    printf("Enrolled in %d course(s) and has %d credit(s)\n", mhs.count, mhs.skstotal);
+                    printf("This will also delete all grades related to this student\n");
 
                     printf("Are you sure? (y/n): ");
                     char ttemp;
@@ -344,8 +393,18 @@ void manage_student(){
                         strcpy(mhs.mhsname, "");
                         strcpy(mhs.nrp, "");
                         strcpy(mhs.dosen, "");
+                        for (int i = 0; i < mhs.count; i++){
+                            strcpy(mhs.mapel[i].mkname, "");
+                            strcpy(mhs.mapel[i].mkcode, "");
+                            mhs.mapel[i].sks = 0;
+                            mhs.mapel[i].uts = 0;
+                            mhs.mapel[i].eas = 0;
+                            mhs.mapel[i].avg = 0;
+                            mhs.mapel[i].finalgrade = 0;
+                        }
+                        mhs.count = 0;
+                        mhs.skstotal = 0;
                         fwrite(&mhs, sizeof(struct mahasiswafile), 1, sfp);
-                        fclose(sfp);
                         printf("Data has been deleted.");
                         printf(" Returning to main menu\n");
                         loading();

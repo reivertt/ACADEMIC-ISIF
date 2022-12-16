@@ -109,13 +109,7 @@ int main(){
                         reset_dosen();
                     }
                     else if (schoice == 7){
-                        printf("student grades\n");
-                        /*
-                        ? The ALUR
-                        * Find student
-                        * Find course
-                        * Assign grade
-                        */
+                        menu_grade();
                     }
                     else if (schoice == 9){
                         system("cls");
@@ -180,6 +174,11 @@ int main(){
         }
         else if (choice == 9){
             header();
+            printf("Known Bugs:\n");
+            printf("1. When doing anything related to a file, data wont automatically update\n");
+            printf("   you would need to restart the program to see the changes\n");
+            printf("2. Incorrect format (should've been Morioh Institute of Technology), due\n");
+            printf("   to the time constraint and student's continuously deteriorating health, he gave up.\n");
             //todo add easter egg
             system("pause");
         }
