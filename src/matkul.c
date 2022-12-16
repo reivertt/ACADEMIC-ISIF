@@ -113,29 +113,36 @@ void reset_mata_kuliah(){
         printf("Enter the course code to delete: ");
         char temp[5];
         scanf("\n%s", temp);
-        int lim = atoi(temp);
-        fseek(coursefp, (lim - 1) * sizeof(struct mapelfile), SEEK_SET);
-        if (!fread(&mapel, sizeof(struct mapelfile), 1, coursefp)){
-            printf("Data not found\n");
-        }
-        else {
-            printf("You are about to delete data regarding:\n");
-            printf("Course Name: %s\n", mapel.mkname);
-            printf("Course ID: %s\n", mapel.mkcode);
-            printf("Course Credit: %d\n", mapel.sks);
 
-            printf("Are you sure? (y/n): ");
-            char ttemp;
-            scanf("\n%c", &ttemp);
-            if (ttemp == 'y'){
-                strcpy(mapel.mkname, "");
-                strcpy(mapel.mkcode, "");
-                mapel.sks = 0;
-                fwrite(&mapel, sizeof(struct mapelfile), 1, coursefp);
-                printf("Data has been deleted.");
-            }
-            else{
-                printf("Data has not been deleted.");
+        while(!feof(coursefp)){
+            fread(&mapel, sizeof(struct mapelfile), 1, coursefp);
+            if (strcmp(mapel.mkcode, temp) == 0){
+                int lim = atoi(temp);
+
+                printf("You are about to delete data regarding:\n");
+                printf("Course Name: %s\n", mapel.mkname);
+                printf("Course ID: %s\n", mapel.mkcode);
+                printf("Course Credit: %d\n", mapel.sks);
+                printf("With grades along with it.\n");
+
+                printf("Are you sure? (y/n): ");
+                char ttemp;
+                scanf("\n%c", &ttemp);
+                if (ttemp == 'y'){
+                    strcpy(mapel.mkname, "");
+                    strcpy(mapel.mkcode, "");
+                    mapel.sks = 0;
+                    mapel.uts = 0;
+                    mapel.eas = 0;
+                    mapel.avg = 0;
+                    mapel.finalgrade = 0;
+                    fseek(coursefp, (lim - 1) * sizeof(struct mapelfile), SEEK_SET);
+                    fwrite(&mapel, sizeof(struct mapelfile), 1, coursefp);
+                    printf("Data has been deleted.");
+                }
+                else{
+                    printf("Data not deleted\n");
+                }
             }
         }
 

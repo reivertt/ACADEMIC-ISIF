@@ -144,7 +144,7 @@ void manage_student(){
             break;
         }
 
-        int lim = atoi(tremp);
+        int lim = atoi(tremp); //holdup
         fseek(sfp, (lim - 1) * sizeof(struct mahasiswafile), SEEK_SET);
         if (!fread(&mhs, sizeof(struct mahasiswafile), 1, sfp)){
             printf("Student not found\n");
@@ -372,7 +372,7 @@ void manage_student(){
                     printf("=================================================\n");
                     printf("Course code\tCourse name\tGrade\n");
                     for (int i = 0; i < mhs.count; i++){
-                        printf("%s %s %d\n", mhs.mapel[i].mkcode, mhs.mapel[i].mkname, mhs.mapel[i].finalgrade);
+                        printf("%s\t%s\t%d\n", mhs.mapel[i].mkcode, mhs.mapel[i].mkname, mhs.mapel[i].finalgrade);
                     }
                     printf("=================================================\n");
                     system("pause");
@@ -413,6 +413,7 @@ void manage_student(){
                     }
                     else{
                         printf("Data has not been deleted.");
+                        system("pause");
                     }
                 }
                 else if (choice == 9){
@@ -423,6 +424,7 @@ void manage_student(){
                 }
                 else{
                     printf("Invalid input\n");
+                    system("pause");
                 }
             }
         }

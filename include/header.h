@@ -29,13 +29,13 @@ struct mapelfile
 struct mahasiswafile
 {
     char mhsname[50];
-    char nrp[5];
+    char nrp[5];    //just these two
     
     //pointer
     char dosen[20];
     int skstotal;
 
-    struct mapelfile mapel[10];
+    struct mapelfile mapel[10]; //seperate kapan"
     int count;
     //look for every declaration and empty this shit
 };

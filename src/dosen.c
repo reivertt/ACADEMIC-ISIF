@@ -108,28 +108,28 @@ void reset_dosen(){
         printf("Input NIP to delete: ");
         char temp[5];
         scanf("\n%s", temp);
-        int lim = atoi(temp);
-        fseek(dosenfp, (lim - 1) * sizeof(struct dosenfile), SEEK_SET);
 
-        if (!fread(&dosen, sizeof(struct dosenfile), 1, dosenfp)){
-            printf("Data not found\n");
-        }
-        else {
-            printf("You are about to delete data regarding:\n");
-            printf("Advisor Name: %s\n", dosen.dsnname);
-            printf("NIP: %s\n", dosen.nip);
+        while(!feof(dosenfp)){
+            fread(&dosen, sizeof(struct dosenfile), 1, dosenfp);
+            if (strcmp(dosen.nip, temp) == 0){
+                int lim = atoi(temp);
+                printf("You are about to delete data regarding:\n");
+                printf("Advisor Name: %s\n", dosen.dsnname);
+                printf("NIP: %s\n", dosen.nip);
 
-            printf("Are you sure? (y/n): ");
-            char sure;
-            scanf("\n%c", &sure);
-            if (sure == 'y'){
-                strcpy(dosen.dsnname, "");
-                strcpy(dosen.nip, "");
-                fwrite(&dosen, sizeof(struct dosenfile), 1, dosenfp);
-                printf("Data has been deleted.");
-            }
-            else{
-                printf("Data has not been deleted.");
+                printf("Are you sure? (y/n): ");
+                char sure;
+                scanf("\n%c", &sure);
+                if (sure == 'y'){
+                    strcpy(dosen.dsnname, "");
+                    strcpy(dosen.nip, "");
+                    fseek(dosenfp, (lim - 1) * sizeof(struct dosenfile), SEEK_SET);
+                    fwrite(&dosen, sizeof(struct dosenfile), 1, dosenfp);
+                    printf("Data has been deleted.");
+                }
+                else{
+                    printf("Data has not been deleted.");
+                }
             }
         }
         
@@ -145,4 +145,5 @@ void reset_dosen(){
         }
     }
     fclose(dosenfp);
+    system("cls");
 }
